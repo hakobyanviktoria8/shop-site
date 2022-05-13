@@ -3,3 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+.App{
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid lightgray;
+    padding: 20px;
+    text-align: center;
+}
+.post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
