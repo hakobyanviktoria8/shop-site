@@ -68,3 +68,45 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- work redux -->
+## make action
+export function increment() {
+    return {
+        type: "INCREMENT"
+    }
+}
+
+## make reducer
+export default function countReducer(count = 0, action) {
+    switch(action.type) {
+        case "INCREMENT":
+            return count + 1
+        default:
+            return count
+    }
+}
+
+## ccreate store
+npm i reduxjs/toolkit
+
+const store = configureStore({
+    reducer: {
+        count: countReducer,
+    }
+})
+
+## Provider store 
+    <Provider store= {store}>
+        <App />
+    </Provider>
+
+## use in Component
+npm i react-redux
+
+import {useSelector, useDispatch} from "react-redux"
+const count = useSelector(state => state.count)
+const dispatch = useDispatch()
+
+<button onClick={() => dispatch(increment())}>Increment</button>
