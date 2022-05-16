@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import reducerPosts, { addPost, removePost } from '../redux/posts'
-const redux = require("redux")
-const {createStore} = redux
-export const store = createStore(reducerPosts)
+import { store } from '../redux/store'
 
 function Posts() {
   const[inputValue, setInputValue] = useState("")
@@ -19,7 +17,7 @@ function Posts() {
   }, [allPosts])
 
   return (
-    <div>
+    <div className='postsComp'>
       <h2>Posts</h2>
       <form onSubmit={ handleAddPost }>
         <input 

@@ -9,6 +9,10 @@
     border: 1px solid lightgray;
     padding: 20px;
     text-align: center;
+    min-height: 94vh;
+}
+.postsComp{
+    min-height: 150px;
 }
 .post{
     display: flex;

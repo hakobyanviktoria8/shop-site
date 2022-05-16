@@ -1,17 +1,4 @@
-export function addPost(post) {
-    return {
-        type: "ADD_POST",
-        payload: post,
-    }
-}
-export function removePost(post) {
-    return {
-        type: "REMOVE_POST",
-        payload: post,
-    }
-}
-
-export default function reducerPosts(posts = [], action) {
+export default function postsReducer(posts = [], action) {
     switch(action.type) {
         case "ADD_POST":
             return [
@@ -25,4 +12,3 @@ export default function reducerPosts(posts = [], action) {
             return posts
     }
 }
-
