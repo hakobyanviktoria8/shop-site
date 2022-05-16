@@ -1,43 +1,41 @@
-import React, { useState, useEffect } from 'react'
-import reducerPosts, { addPost, removePost } from '../redux/posts'
-import { store } from '../redux/store'
+import React,{useState} from 'react'
+import {useSelector, useDispatch} from "react-redux"
+import { addPost, removePost } from '../redux/action/postsAction'
 
-function Posts() {
-  const[inputValue, setInputValue] = useState("")
-  const[allPosts, setAllPosts] = useState([])
-  
-  const handleAddPost = (e) => {
-    e.preventDefault()
-    store.dispatch(addPost(inputValue))
-    setInputValue("")
-  }
+function PostsComp() {
+    const dispatch = useDispatch()
+    const posts = useSelector(state => state.posts)
+    const[inputValue, setInputValue] = useState("")
 
-  useEffect(() => { 
-    store.subscribe(() => setAllPosts(store.getState()))
-  }, [allPosts])
-
+    const handleAddPost = (e) => {
+        e.preventDefault()
+        dispatch(addPost(inputValue))
+        setInputValue("")
+    }
+console.log(posts);
   return (
-    <div className='postsComp'>
-      <h2>Posts</h2>
-      <form onSubmit={ handleAddPost }>
-        <input 
-          type={"text"} 
-          value={inputValue} 
-          onChange={(e)=>setInputValue(e.target.value)} 
-          placeholder="Write post"
-        />
-        <input type="submit" value="Add post"/>
-      </form>
-      <div>
-        {allPosts?.map((post,idx)=>
-        <div key={idx} className="post">
-          <p>{idx}. {post}</p>
-          <button onClick={()=>store.dispatch(removePost(allPosts[idx]))}>Delete</button>
+    <div>
+        <h2>Posts</h2>
+        <form onSubmit={ handleAddPost }>
+            <input 
+            type={"text"} 
+            value={inputValue} 
+            onChange={(e)=>setInputValue(e.target.value)} 
+            placeholder="Write post"
+            />
+            <input type="submit" value="Add post" disabled={!inputValue}/>
+        </form>
+      
+        <div>
+            {posts?.map((post,idx)=>
+                <div key={idx} className="post">
+                    <p>{idx}. {post}</p>
+                    <button onClick={()=>dispatch(removePost(posts[idx]))}>Delete</button>
+                </div>
+            )}
         </div>
-        )}
-      </div>
     </div>
   )
 }
 
-export default Posts
+export default PostsComp
