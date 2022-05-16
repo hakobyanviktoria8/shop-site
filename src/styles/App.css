@@ -11,6 +11,15 @@
     text-align: center;
     min-height: 94vh;
 }
+.countWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+h3{
+    margin: 20px;
+}
 .postsComp{
     min-height: 150px;
 }

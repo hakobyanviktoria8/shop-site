@@ -1,11 +1,12 @@
-import { createStore } from "redux"
-import { rootReducer } from "../reducer/rootReducer"
+import countReducer from "../reducer/countReducer"
+import postsReducer from "../reducer/postsReducer"
+import { configureStore } from '@reduxjs/toolkit'
 
-// create store and subscribe state
-const store = createStore(rootReducer)
-
-store.subscribe(() => {
-    console.log("rootReducer", store.getState())
+const store = configureStore({
+    reducer: {
+        posts: postsReducer,
+        count: countReducer,
+    }
 })
 
 export default store

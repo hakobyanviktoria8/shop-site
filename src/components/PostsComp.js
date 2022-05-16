@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, {useState} from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import { addPost, removePost } from '../redux/action/postsAction'
 
@@ -12,7 +12,7 @@ function PostsComp() {
         dispatch(addPost(inputValue))
         setInputValue("")
     }
-console.log(posts);
+    
   return (
     <div>
         <h2>Posts</h2>
