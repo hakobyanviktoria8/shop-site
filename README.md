@@ -89,7 +89,7 @@ export default function countReducer(count = 0, action) {
 }
 
 ## ccreate store
-npm i reduxjs/toolkit
+npm i @reduxjs/toolkit
 
 const store = configureStore({
     reducer: {
@@ -110,3 +110,8 @@ const count = useSelector(state => state.count)
 const dispatch = useDispatch()
 
 <button onClick={() => dispatch(increment())}>Increment</button>
+
+
+
+<!-- usefull -->
+https://www.youtube.com/watch?v=dUVXHMHJio0&list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3&index=22
