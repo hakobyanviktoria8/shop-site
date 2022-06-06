@@ -1,5 +1,6 @@
 import "./../styles/App.css"
 import CountCopm from "./CountCopm";
+import Example from "./Example";
 import PostsComp from "./PostsComp";
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
      <CountCopm/>
      <hr/>
      <PostsComp/>
+     <hr/>
+     <Example/>
     </div>
   );
 }
